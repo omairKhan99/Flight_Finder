@@ -69,7 +69,6 @@ def main():
 
     leg2_flights = {}
     for hub in HUB_AIRPORTS:
-        # Note: We search for the same date. A better script could search for the next day too.
         flights = search_flights(amadeus, hub, DESTINATION_CITY, SEARCH_DATE)
         if flights:
             leg2_flights[hub] = flights
