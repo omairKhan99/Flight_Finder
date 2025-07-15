@@ -1,6 +1,7 @@
 import os
 from datetime import datetime, timedelta
 from amadeus import Client, ResponseError
+import results_renderer
 
 AMADEUS_API_KEY = os.getenv('AMADEUS_API_KEY')
 AMADEUS_API_SECRET = os.getenv('AMADEUS_API_SECRET')
@@ -95,15 +96,9 @@ def main():
         print("\nNo valid full round trips could be constructed.")
         return
 
-    print("\n--- Here are the top 5 cheapest round trip options found! ---")
     sorted_trips = sorted(full_round_trips, key=lambda x: x['total_price'])
 
-    for i, trip in enumerate(sorted_trips[:5]):
-        print(f"\n--- Option #{i+1} ---")
-        print(f"✈️  Total Round Trip Price: ${trip['total_price']:.2f} {CURRENCY}")
-        print(f"  -> Outbound: ${trip['outbound_price']:.2f} | Route: {trip['outbound_details']}")
-        print(f"  <- Inbound:  ${trip['inbound_price']:.2f} | Route: {trip['inbound_details']}")
-        print("-" * 25)
+    results_renderer.generate_html_report(sorted_trips[:25], ORIGIN_CITY, DESTINATION_CITY, DEPARTURE_DATE, RETURN_DATE)
 
 if __name__ == "__main__":
     main()
