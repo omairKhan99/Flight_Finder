@@ -84,6 +84,11 @@ HUB_AIRPORTS = [
 python find_flights.py
 ```
 
+## Script Running
+<img width="645" height="1086" alt="image" src="https://github.com/user-attachments/assets/9e48c02a-7371-4932-bb73-6725b2a3fb2c" />
+
+## Script displaying output in an html file
+<img width="1485" height="1110" alt="image" src="https://github.com/user-attachments/assets/33c9b62e-3591-4650-ad0b-dd48c7067ff9" />
 
 
 
